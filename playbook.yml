@@ -1,5 +1,4 @@
 - hosts: localhost
-  become: yes
   tasks:
     - debug:
         msg: '{{lookup("env", "GITLAB_ROOT_PASSWORD")}}'
