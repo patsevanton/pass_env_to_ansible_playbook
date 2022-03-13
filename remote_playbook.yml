@@ -1,0 +1,4 @@
+- hosts: gitlab
+  tasks:
+    - debug:
+        msg: '{{lookup("env", "GITLAB_ROOT_PASSWORD")}}'

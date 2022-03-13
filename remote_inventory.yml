@@ -1,0 +1,8 @@
+all:
+  children:
+    gitlab:
+      hosts:
+        "gitlab":
+          ansible_host: "51.250.37.126"
+  vars:
+    ansible_user:  ubuntu
