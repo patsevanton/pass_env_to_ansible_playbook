@@ -1,4 +1,15 @@
 - hosts: gitlab
+  become: yes
   tasks:
     - debug:
         msg: '{{lookup("env", "GITLAB_ROOT_PASSWORD")}}'
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+      when: ansible_os_family == 'Debian'
+      changed_when: false
+    - debug:
+        msg: '{{lookup("env", "GITLAB_ROOT_PASSWORD")}}'
+
+  roles:
+    - role: geerlingguy.gitlab
